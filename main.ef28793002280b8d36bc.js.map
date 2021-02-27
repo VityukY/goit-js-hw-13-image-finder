@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./index.js"],"names":[],"mappings":"kHAAA,mB","file":"main.ef28793002280b8d36bc.js","sourcesContent":["import './styles.css';\n/*Pixabay API. \nhttps://pixabay.com/api/?image_type=photo&orientation=horizontal&q=что_искать&page=номер_страницы&per_page=12&key=твой_ключ\n\n*/\n"],"sourceRoot":""}
