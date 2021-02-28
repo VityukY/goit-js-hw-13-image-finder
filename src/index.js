@@ -1,5 +1,6 @@
 import './styles.css';
 import searchService from './js/image-services';
+import { loadImagerToGallery } from './js/updateMarkups';
 
 const gelleryRef = document.querySelector('#gallery');
 const searchAreaRef = document.querySelector('#search-form');
@@ -17,12 +18,18 @@ searchAreaRef.addEventListener('submit', e => {
   searchAreaRef.reset();
 
   searchService.resetPage();
-  searchService.searchRequest();
+  searchService
+    .searchRequest()
+    .then(data => loadImagerToGallery(data))
+    .then(searchService.scrolling);
   moreButtonRef.classList.remove('invisible');
 });
 
 moreButtonRef.addEventListener('click', uploadImages);
 
 function uploadImages() {
-  searchService.searchRequest();
+  searchService
+    .searchRequest()
+    .then(data => loadImagerToGallery(data))
+    .then(searchService.scrolling);
 }
