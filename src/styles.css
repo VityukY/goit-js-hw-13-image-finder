@@ -74,3 +74,6 @@ body {
 .invisible{
   display: none;
 }
+.images {
+  background-size: cover;
+}

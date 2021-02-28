@@ -27,9 +27,6 @@ export default {
     this.pageNumber = 1;
   },
   scrolling() {
-    window.scrollTo({
-      top: document.documentElement.offsetHeight,
-      behavior: 'smooth',
-    });
+    window.scrollBy(0, 850);
   },
 };

@@ -5,6 +5,7 @@ import { loadImagerToGallery } from './js/updateMarkups';
 const gelleryRef = document.querySelector('#gallery');
 const searchAreaRef = document.querySelector('#search-form');
 const moreButtonRef = document.querySelector('#more');
+const inputAreRef = document.querySelector('#inputArea');
 
 /*let searchQuery = '';
 let pageNumber = 1;*/
@@ -12,7 +13,7 @@ let pageNumber = 1;*/
 searchAreaRef.addEventListener('submit', e => {
   e.preventDefault();
 
-  searchService.searchQuery = e.target[0].value;
+  searchService.searchQuery = inputAreRef.value;
 
   gelleryRef.innerHTML = '';
   searchAreaRef.reset();
@@ -21,8 +22,10 @@ searchAreaRef.addEventListener('submit', e => {
   searchService
     .searchRequest()
     .then(data => loadImagerToGallery(data))
-    .then(searchService.scrolling);
-  moreButtonRef.classList.remove('invisible');
+    .then(() => {
+      searchService.scrolling;
+      moreButtonRef.classList.remove('invisible');
+    });
 });
 
 moreButtonRef.addEventListener('click', uploadImages);
