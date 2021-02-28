@@ -23,7 +23,6 @@ searchAreaRef.addEventListener('submit', e => {
     .searchRequest()
     .then(data => loadImagerToGallery(data))
     .then(() => {
-      searchService.scrolling;
       moreButtonRef.classList.remove('invisible');
     });
 });
@@ -31,8 +30,9 @@ searchAreaRef.addEventListener('submit', e => {
 moreButtonRef.addEventListener('click', uploadImages);
 
 function uploadImages() {
+  const galleryBottom = gelleryRef.clientHeight + gelleryRef.offsetTop;
   searchService
     .searchRequest()
     .then(data => loadImagerToGallery(data))
-    .then(searchService.scrolling);
+    .then(() => window.scrollTo({ top: galleryBottom, behavior: 'smooth' }));
 }
